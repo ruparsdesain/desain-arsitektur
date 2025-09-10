@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jasa desain arsitektur profesional. Kami menghadirkan desain modern dan fungsional untuk rumah, kantor, dan proyek komersial.">
+<title>ArsitekPro - Jasa Desain Arsitektur</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Reset & font */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;scroll-behavior:smooth;}
+body{line-height:1.6;color:#333;}
+a{text-decoration:none;color:inherit;}
+
+/* Header */
+header{background:#2c3e50;color:#fff;padding:20px 0;position:fixed;width:100%;top:0;z-index:1000;}
+.container{width:90%;max-width:1200px;margin:auto;}
+nav{display:flex;justify-content:space-between;align-items:center;}
+nav a{margin:0 15px;font-weight:700;transition:color 0.3s;}
+nav a:hover{color:#f39c12;}
+
+/* Hero */
+.hero{background:url('https://images.unsplash.com/photo-1580584123513-9c8d5a517c7b?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;height:90vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;}
+.hero h1{font-size:3rem;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,0.7);animation:fadeInDown 1s ease-in-out;}
+.hero p{font-size:1.2rem;text-shadow:1px 1px 3px rgba(0,0,0,0.7);animation:fadeInUp 1s ease-in-out;}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+
+section{padding:80px 0 60px;}
+h2{text-align:center;margin-bottom:40px;font-size:2rem;color:#2c3e50;}
+
+/* About */
+.about p{max-width:800px;margin:auto;text-align:center;}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.service-box{background:#ecf0f1;padding:30px;border-radius:10px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;}
+.service-box:hover{transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.service-box h3{margin-bottom:15px;color:#2980b9;}
+
+/* Portfolio */
+.portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.portfolio img{width:100%;border-radius:10px;transition:transform 0.3s;cursor:pointer;}
+.portfolio img:hover{transform:scale(1.05);}
+
+/* Lightbox */
+#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:2000;}
+#lightbox img{max-width:90%;max-height:80%;border-radius:10px;}
+#lightbox .close{position:absolute;top:20px;right:30px;font-size:30px;color:#fff;cursor:pointer;}
+#lightbox .prev, #lightbox .next{position:absolute;top:50%;transform:translateY(-50%);font-size:50px;color:#fff;cursor:pointer;padding:10px;}
+#lightbox .prev{left:20px;}#lightbox .next{right:20px;}
+
+/* Testimonials */
+.testimonials{max-width:800px;margin:auto;text-align:center;}
+.testimonial{background:#ecf0f1;padding:20px;margin:15px 0;border-radius:10px;font-style:italic;}
+.testimonial strong{display:block;margin-top:10px;font-weight:700;color:#2980b9;}
+
+/* Contact */
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+input,textarea{padding:10px;border:1px solid #ccc;border-radius:5px;width:100%;}
+button{padding:12px;background:#2980b9;color:#fff;border:none;border-radius:5px;cursor:pointer;transition:background 0.3s;}
+button:hover{background:#1c5980;}
+
+/* Google Map */
+.map-container{width:100%;height:300px;margin-top:20px;border-radius:10px;overflow:hidden;}
+
+/* Footer */
+footer{background:#2c3e50;color:#fff;text-align:center;padding:20px 0;margin-top:40px;}
+
+/* Back to top button */
+#backToTop{position:fixed;bottom:30px;right:30px;background:#f39c12;color:#fff;padding:10px 15px;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:background 0.3s;}
+#backToTop:hover{background:#e67e22;}
+
+/* Responsive */
+@media(max-width:768px){.hero h1{font-size:2.2rem;}.hero p{font-size:1rem;}nav{flex-direction:column;gap:10px;}}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+<div class="container">
+<nav>
+<h1>ArsitekPro</h1>
+<div>
+<a href="#home">Beranda</a>
+<a href="#about">Tentang</a>
+<a href="#services">Layanan</a>
+<a href="#portfolio">Portofolio</a>
+<a href="#testimonials">Testimoni</a>
+<a href="#contact">Kontak</a>
+</div>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div>
+<h1>Desain Arsitektur Modern & Fungsional</h1>
+<p>Mewujudkan hunian dan ruang kerja impian Anda dengan desain profesional.</p>
+</div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+<div class="container">
+<h2>Tentang Kami</h2>
+<p>ArsitekPro adalah jasa desain arsitektur yang berfokus pada desain rumah, kantor, dan proyek komersial. Kami menghadirkan solusi kreatif, modern, dan fungsional untuk setiap proyek Anda.</p>
+</div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+<div class="container">
+<h2>Layanan Kami</h2>
+<div class="services">
+<div class="service-box"><h3>Desain Rumah</h3><p>Mendesain rumah sesuai kebutuhan dan gaya hidup klien.</p></div>
+<div class="service-box"><h3>Desain Kantor</h3><p>Menciptakan ruang kantor yang nyaman dan produktif.</p></div>
+<div class="service-box"><h3>Renovasi & Interior</h3><p>Mengubah ruang lama menjadi lebih modern dan fungsional.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio" id="portfolio">
+<div class="container">
+<h2>Portofolio</h2>
+<div class="portfolio">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161c8a9b1?auto=format&fit=crop&w=600&q=80" alt="Desain Rumah Modern">
+<img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Desain Kantor">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80" alt="Renovasi Interior">
+</div>
+</div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+<span class="close">&times;</span>
+<span class="prev">&#10094;</span>
+<img src="" alt="">
+<span class="next">&#10095;</span>
+</div>
+
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+<div class="container">
+<h2>Testimoni Klien</h2>
+<div class="testimonial"><p>"ArsitekPro mengubah rumah lama kami menjadi rumah impian. Sangat profesional!"</p><strong>- Budi Santoso</strong></div>
+<div class="testimonial"><p>"Desain kantor baru kami lebih modern dan nyaman. Tim ArsitekPro luar biasa."</p><strong>- Sari Wijaya</strong></div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+<div class="container">
+<h2>Kontak Kami</h2>
+<form class="contact-form">
+<input type="text" placeholder="Nama" required>
+<input type="email" placeholder="Email" required>
+<textarea rows="5" placeholder="Pesan" required></textarea>
+<button type="submit">Kirim Pesan</button>
+</form>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</section>
+
+<!-- Back to top -->
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
+<!-- Footer -->
+<footer><p>© 2025 ArsitekPro. Semua hak cipta dilindungi.</p></footer>
+
+<script>
+// Back to top
+const backToTopButton=document.getElementById("backToTop");
+window.onscroll=function(){toggleBackToTop();};
+function toggleBackToTop(){if(document.body.scrollTop>300||document.documentElement.scrollTop>300){backToTopButton.style.display="block";}else{backToTopButton.style.display="none";}}
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=lightbox.querySelector('img');
+const images=document.querySelectorAll('.portfolio img');
+let currentIndex=0;
+
+images.forEach((img,index)=>{img.addEventListener('click',()=>{currentIndex=index;showLightbox();});});
+function showLightbox(){lightbox.style.display='flex';lightboxImg.src=images[currentIndex].src;}
+lightbox.querySelector('.close').onclick=()=>{lightbox.style.display='none';};
+lightbox.querySelector('.prev').onclick=()=>{currentIndex=(currentIndex-1+images.length)%images.length;showLightbox();};
+lightbox.querySelector('.next').onclick=()=>{currentIndex=(currentIndex+1)%images.length;showLightbox();};
+lightbox.onclick=(e)=>{if(e.target===lightbox){lightbox.style.display='none';}};
+</script>
+
+</body>
+</html>
