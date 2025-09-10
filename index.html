@@ -3,45 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jasa desain arsitektur profesional. Kami menghadirkan desain modern dan fungsional untuk rumah, kantor, dan proyek komersial.">
-<title>RUPArs Desain - Jasa Desain Arsitektur</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>RUPArs Desain</title>
 <style>
-/* Reset & font */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;scroll-behavior:smooth;}
-body{line-height:1.6;color:#333;background:url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;}
-a{text-decoration:none;color:inherit;}
+* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+body {
+    background: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    scroll-behavior: smooth;
+}
+/* Header dan Logo */
+header {
+    background-color: rgba(255,255,255,0.85);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    backdrop-filter: blur(5px);
+}
+header img { height: 80px; }
+header h1 { font-size:2em; font-weight:bold; color:#0077b6; }
+/* Navbar */
+nav {
+    background-color: rgba(255,255,255,0.9);
+    display:flex; justify-content:center; gap:30px; padding:15px 0;
+}
+nav a { text-decoration:none; color:#333; font-weight:bold; transition:0.3s; }
+nav a:hover { color:#0077b6; }
+/* Section */
+section { background-color: rgba(255,255,255,0.85); margin:20px auto; padding:20px; border-radius:10px; max-width:1200px; transition: all 0.6s ease; opacity:0; transform: translateY(30px);}
+section.visible { opacity:1; transform: translateY(0);}
+h2 { color:#0077b6; margin-bottom:15px; }
+/* Slider Portfolio */
+.slider { position: relative; overflow: hidden; border-radius:10px; margin-bottom:20px; }
+.slides { display: flex; transition: transform 0.7s ease-in-out; }
+.slide { min-width:100%; box-sizing:border-box; text-align:center; position:relative; overflow:hidden; }
+.slide img { width:100%; border-radius:10px; transition: transform 0.3s; }
+.slide:hover img { transform: scale(1.05); }
+/* Overlay interaktif */
+.slide p { position:absolute; bottom:0; width:100%; background:rgba(0,0,0,0.5); color:white; margin:0; padding:10px; text-align:center; font-weight:bold; opacity:0; transition:opacity 0.3s; border-radius:0 0 10px 10px;}
+.slide:hover p { opacity:1; }
 
-/* Overlay agar konten terbaca */
-body::before{
-    content:"";
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(255,255,255,0.8);
-    z-index:-1;
+.slider-buttons { position:absolute; top:50%; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%); }
+.slider-buttons button { background-color: rgba(0,0,0,0.5); border:none; color:white; font-size:2em; padding:10px; cursor:pointer; border-radius:50%; transition:0.3s; }
+.slider-buttons button:hover { background-color: rgba(0,0,0,0.8); }
+/* Info Arsitektur */
+.info-item { margin-bottom:15px; transition:0.3s; }
+.info-item:hover { background-color: rgba(0,119,182,0.1); padding:10px; border-radius:5px; }
+/* Kontak Form */
+form { display:flex; flex-direction:column; gap:10px; }
+input, textarea { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; transition:0.3s; }
+input:focus, textarea:focus { border-color:#0077b6; outline:none; }
+/* Button */
+button { background-color:#0077b6; color:white; padding:10px; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+button:hover { background-color:#005f87; }
+/* Floating WhatsApp */
+.whatsapp { position:fixed; bottom:20px; right:20px; z-index:100; transition:0.3s; opacity:0; transform:translateY(50px); }
+.whatsapp.show { opacity:1; transform:translateY(0); }
+.whatsapp a { background-color:#25D366; color:white; border-radius:50%; padding:15px; font-size:24px; text-decoration:none; box-shadow:2px 2px 5px rgba(0,0,0,0.3); }
+.whatsapp a:hover { background-color:#128C7E; transform:scale(1.1); }
+/* Popup Chat */
+.chat-popup { display:none; position:fixed; bottom:80px; right:20px; border:1px solid #ccc; z-index:101; background:white; width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+.chat-header { background-color:#25D366; color:white; padding:10px; border-radius:10px 10px 0 0; font-weight:bold; display:flex; justify-content:space-between; align-items:center; }
+.chat-body { padding:10px; max-height:300px; overflow-y:auto; }
+.chat-footer { display:flex; gap:5px; padding:10px; }
+.chat-footer input { flex:1; padding:8px; border-radius:5px; border:1px solid #ccc; }
+.chat-footer button { background-color:#0077b6; color:white; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; }
+.chat-footer button:hover { background-color:#005f87; }
+/* Footer */
+footer { text-align:center; padding:20px; background-color: rgba(255,255,255,0.9); margin-top:20px; }
+/* Responsive */
+@media(max-width:768px){ .slide img{height:auto;} .chat-popup{width:90%; } header {flex-direction: column;} }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo-rupars.png" alt="Logo RUPArs">
+    <h1>RUPArs Desain</h1>
+</header>
+
+<nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#info">Info Arsitektur</a>
+    <a href="#contact">Kontak</a>
+</nav>
+
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="https://images.unsplash.com/photo-1505842465776-3d1d6b8f3b59?auto=format&fit=crop&w=800&q=80" alt="Project 1"><p>Desain Rumah Minimalis</p></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Project 2"><p>Desain Kantor Modern</p></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Project 3"><p>Desain Interior Cafe</p></div>
+        </div>
+        <div class="slider-buttons">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<section id="info">
+    <h2>Informasi Arsitektur</h2>
+    <div class="info-item">
+        <h3>Apa itu Arsitektur?</h3>
+        <p>Arsitektur adalah seni dan ilmu merancang dan membangun bangunan yang fungsional, estetik, dan aman.</p>
+    </div>
+    <div class="info-item">
+        <h3>Jenis-jenis Desain Arsitektur</h3>
+        <p>Minimalis, Modern, Klasik, Kontemporer, dan lainnya, sesuai kebutuhan klien.</p>
+    </div>
+    <div class="info-item">
+        <h3>Tips Memilih Desain</h3>
+        <p>Pertimbangkan fungsi, estetika, anggaran, dan lokasi bangunan.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontak Kami</h2>
+    <form id="contactForm" onsubmit="return sendEmail();">
+        <input type="text" id="name" placeholder="Nama" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Pesan" rows="5" required></textarea>
+        <button type="submit">Kirim Pesan</button>
+    </form>
+    <p>Alamat: Jl. Arsitek No.12, Jakarta, Indonesia</p>
+</section>
+
+<!-- Floating WhatsApp -->
+<div class="whatsapp" id="whatsappBtn">
+    <a href="#" onclick="toggleChat()">💬</a>
+</div>
+
+<!-- Chat Popup -->
+<div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+        Chat WhatsApp
+        <span style="cursor:pointer;" onclick="toggleChat()">✖</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <p>Halo! Ada yang bisa kami bantu?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Tulis pesan...">
+        <button onclick="sendChat()">Kirim</button>
+    </div>
+</div>
+
+<footer>&copy; 2025 RUPArs Desain. Semua hak dilindungi.</footer>
+
+<script>
+// Slider otomatis
+const slides = document.querySelector('.slides');
+const slideCount = document.querySelectorAll('.slide').length;
+let index = 0;
+function showSlide(i) { slides.style.transform = `translateX(-${i*100}%)`; }
+function nextSlide() { index = (index + 1) % slideCount; showSlide(index); }
+function prevSlide() { index = (index -1 + slideCount) % slideCount; showSlide(index); }
+document.getElementById('next').addEventListener('click', nextSlide);
+document.getElementById('prev').addEventListener('click', prevSlide);
+setInterval(nextSlide, 5000);
+
+// Form Email
+function sendEmail() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    window.location.href = `mailto:contact@ruparsdesain.com?subject=Pesan dari ${name}&body=${message}%0D%0A%0D%0ADari: ${name} (${email})`;
+    return false;
 }
 
-/* Header */
-header{background:#2c3e50;color:#fff;padding:20px 0;position:fixed;width:100%;top:0;z-index:1000;}
-.container{width:90%;max-width:1200px;margin:auto;}
-nav{display:flex;justify-content:space-between;align-items:center;}
-nav a{margin:0 15px;font-weight:700;transition:color 0.3s;}
-nav a:hover{color:#f39c12;}
-
-/* Hero */
-.hero{height:90vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;}
-.hero h1{font-size:3rem;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,0.7);animation:fadeInDown 1s ease-in-out;}
-.hero p{font-size:1.2rem;text-shadow:1px 1px 3px rgba(0,0,0,0.7);animation:fadeInUp 1s ease-in-out;}
-@keyframes fadeInDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
-
-section{padding:80px 0 60px;}
-h2{text-align:center;margin-bottom:40px;font-size:2rem;color:#2c3e50;}
-
-/* About */
-.about p{max-width:800px;margin:auto;text-align:center;background:rgba(255,255,255,0.8);padding:20px;border-radius:10px;}
-
-/* Services */
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.service-box{background:#ecf0f1;padding:30px;
+// Chat Popup
+function toggleChat() {
+    const chat = document.getElementById('chatPopup');
+    chat.style.display = chat.style.display === 'block' ? 'none' : 'block';
